@@ -6,7 +6,10 @@ import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
 import './App.css';
 
-function AppUI({totalTodos,
+function AppUI({
+                loading,
+                error,
+                totalTodos,
                 completedTodos,
                 searchValue,
                 setSearchValue,
@@ -26,6 +29,10 @@ function AppUI({totalTodos,
       />
       
       <TodoList > 
+        {error && <p>3RR0R</p>}
+        {loading && <p>C4RG4ND0</p>}
+        {(!loading && !searchedTodos.length) && <p>create ese</p>}
+
         {searchedTodos.map(todo => (
           <TodoItem 
             key={todo.text} 
